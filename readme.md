@@ -1,4 +1,11 @@
-
+1. markup
+2. logica
+2.1 array ogetti lista (text e done)
+2.2 v-for nel dom per elem array
+2.3 attributo done degli oggetti dell'array per differenziare i fatti dai non fatti.
+2.4 evento button done per task svolte.
+2.5 evento button trash per eliminare task.
+2.6 evento input per inserire nuove task e aggiungerle con button add.
 
 
 

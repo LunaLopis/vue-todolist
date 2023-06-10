@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Document</title>
+</head>
+<body class="bg-dark text-light">
+    <div id="app">
+        <header class="mt-4">
+            <div class="container text-center box-shadow ">
+                <div class="row">
+                    <div class="col bg-dark opacity-75">
+                        <div class="content p-4">
+                            <h1>Vue ToDoList</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="mt-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="content text-light box-shadow bg-grey rounded">
+                            <div class="bg-dark opacity-75 p-4 testo">
+                                <h2>Lista delle cose da fare...</h2>
+                            </div>
+                            <ul class="list-group">
+                                <li v-for="(task, index) in tasks" :key="index"
+                                    class="list-group-item bg-dark opacity-75 text-light d-flex justify-content-between"
+                                    :class="{ 'text-decoration-line-through': task.done }">
+                                    <span @click="toggleTaskStatus(index)">{{ task.text }}</span>
+                                    <div>
+                                        <button type="button" class="btn btn-success"
+                                            @click="toggleTaskStatus(index)"><i class="fa-solid fa-check"></i></button>
+                                        <button type="button" class="btn btn-danger"@click="deleteTask(index)"><i
+                                                class="fa-solid fa-trash"></i></button>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control"
+                                    placeholder="Aggiungi una nuova task" v-model="newTask" aria-label="Recipient's username"
+                                    aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary text-light btn-lg" @click="addTask" type="button">+ Add</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./js/script.js"></script>
+</html>
